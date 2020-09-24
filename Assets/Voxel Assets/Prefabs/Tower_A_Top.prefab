@@ -89,6 +89,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4101459293844584}
     m_Modifications:
+    - target: {fileID: 1909934474461552576, guid: ca2dd8d139449bf40bec92ad7382ef94, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4642656878060563687, guid: ca2dd8d139449bf40bec92ad7382ef94, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

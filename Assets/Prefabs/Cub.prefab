@@ -81,7 +81,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797008280447227808}
-  m_Text: 0,0
+  m_Text: 6,-1
   m_OffsetZ: 20
   m_CharacterSize: 15.42
   m_LineSpacing: 2
@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 3807147619078417517}
   - component: {fileID: 804189720}
   - component: {fileID: 6297695099387471196}
+  - component: {fileID: 6421863933417098737}
   m_Layer: 0
   m_Name: Cub
   m_TagString: Untagged
@@ -153,8 +154,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a83f132d238d2d4883ee196294a7f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 6647905514398207900, guid: b94d557addb5f2445872ce788e656410, type: 3}
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isPlaceable: 1
+--- !u!65 &6421863933417098737
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952688730761984447}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7023179815068019196
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class Pathfinder : MonoBehaviour
         if (path.Count == 0)
         {
             LoadBlocks();
-            ColorStartAndEnd();
+            //ColorStartAndEnd();
             BreathFirstSearch();
             CreatePath();
         }
@@ -33,13 +33,18 @@ public class Pathfinder : MonoBehaviour
     private void CreatePath()
     {
         path.Add(endWaypoint);
+        endWaypoint.isPlaceable = false;
         Waypoint previous = endWaypoint.exploredFrom;
         while(previous != startWaypoint)
         {
             path.Add(previous);
+            previous.isPlaceable = false;
             previous = previous.exploredFrom;
         }
+        path.Add(startWaypoint);
         path.Reverse();
+        startWaypoint.isPlaceable = false;
+        
     }
 
     private void BreathFirstSearch()
@@ -98,11 +103,11 @@ public class Pathfinder : MonoBehaviour
          }
     }
 
-    private void ColorStartAndEnd()
+   /* private void ColorStartAndEnd()
     {
         startWaypoint.SetTopColor(Color.white);
         endWaypoint.SetTopColor(Color.grey);
-    }
+    }*/
 
     private void LoadBlocks()
     {
@@ -112,7 +117,7 @@ public class Pathfinder : MonoBehaviour
             bool isOVerlaping = grid.ContainsKey(waypoint.GetGrid());
             if (isOVerlaping)
             {
-                Debug.LogWarning("Overlapping tiles!");
+                Debug.LogWarning("Overlapping tiles!" + waypoint.name);
             }
             else
             {

@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    
+
+    [SerializeField] float enemySpeed = 0.5f;
+    EnemyDAmage enemyDAmage;
+
+
     void Start()
     {
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
+        enemyDAmage = FindObjectOfType<EnemyDAmage>();
         var path = pathfinder.GetPath();
         StartCoroutine(FollowPath(path));
         
@@ -18,13 +23,13 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator FollowPath(List<Waypoint> path)
     {
 
-        Debug.Log("Starting patroll");
+        //Debug.Log("Starting patroll");
         foreach (Waypoint waypoint in path)
         {
             transform.position = waypoint.transform.position;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(enemySpeed);
         }
-        Debug.Log("Ending patroll");
+        enemyDAmage.KillEnemy();
     }
     
     // Update is called once per frame

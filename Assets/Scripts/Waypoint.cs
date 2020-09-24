@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
+    
+    
     Vector2Int gridPos;
     const int gridSize = 10;
     public bool isExplored = false;
     public Waypoint exploredFrom;
+    public bool isPlaceable = true;
     void Start()
     {
         
@@ -24,9 +27,23 @@ public class Waypoint : MonoBehaviour
             Mathf.RoundToInt(transform.position.z / gridSize));
     }
 
-    public void SetTopColor(Color color)
+    /*   public void SetTopColor(Color color)
+       {
+           MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
+           topMeshRenderer.material.color = color;
+       }*/
+    private void OnMouseOver()
     {
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-        topMeshRenderer.material.color = color;
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isPlaceable)
+            {
+                FindObjectOfType<TowerFactory>().AddTower(this);
+                
+            }
+            
+        }
+        
+        
     }
 }
